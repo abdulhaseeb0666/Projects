@@ -1,0 +1,121 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+    background-color: black;
+    padding: 10px;
+    color: white;
+}
+
+form{
+    background-color: rgb(25, 23, 23);
+    height: fit-content ;
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+p{
+    color: white;
+    font-size: small;
+    font-weight: 600;
+    margin: 5px 0;
+}
+
+input,
+textarea{
+    background-color: rgb(56, 56, 56); 
+    border: none;  
+    padding: 5px;
+    border: 1px solid grey;
+    border-radius: 3px;
+    color: white;
+}
+
+#heading{   
+    color: white;
+    font-size: 15px;
+}
+
+.submit-button{
+    cursor: pointer;
+    border: 2px white solid;
+    background-color: rgb(58, 142, 179);
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+::placeholder{
+    color: white;
+    text-align: left;
+    vertical-align: top;
+}
+
+.app{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.todo-list{
+    background-color: rgb(25, 23, 23);
+    height: fit-content ;
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 10px;
+    width: 50%;
+    margin-left: 2px;
+    height: 640px;
+}
+
+.todo-list h1{
+    text-align: center;
+    margin: 5px;
+}
+
+.task{
+    background-color: rgb(56, 56, 56); 
+    border: none;  
+    padding: 5px;
+    border: 1px solid grey;
+    border-radius: 3px;
+    color: white;
+    margin: 10px 0;
+    display: flex;
+    
+}
+
+.task h2{
+    font-size: 20px;
+    border-radius: 10px;
+    border: 2px rgb(220, 216, 216) solid;
+    padding: 3px 6px;
+    background-color: red;
+    margin-right: 10px;
+}
+
+.task p{
+    font-size: 20px;
+    font-weight: normal;
+
+}
+
+@media (max-width: 900px){
+    .app{
+        flex-direction: column;
+    }
+    .form, .todo-list{
+        width: 100%;
+    }
+}
