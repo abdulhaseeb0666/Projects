@@ -71,7 +71,7 @@ input::placeholder {
 }
 
 .submit-button:hover {
-    background-color: rgba(58, 142, 179, 0.8);
+    background-color: rgba(58, 179, 84, 0.459);
 }
 
 .submit-button:active {
@@ -95,6 +95,7 @@ input::placeholder {
 /* TODO LIST */
 .todo-list {
     height: 58vh;
+    padding: 10px 20px;
 }
 
 .todo-list h1 {
@@ -109,28 +110,26 @@ input::placeholder {
     flex-direction: column;
     gap: 10px;
     overflow: auto;
+    width: 100%;
+    width: 100%;
 }
 
 .task {
     margin: 10px 0;
     display: flex;
-    width: 98%;
+    flex-direction: column;
+    gap: 5px;
+    height: 300px;
 }
 
 /* Task Title */
 .task h2 {
-    width: 100px;
+    /* width: fit-content; */
     margin-right: 10px;
     padding: 3px 6px;
-
-    font-size: 20px;
-    background-color: red;
-    border: 2px solid rgb(220, 216, 216);
-    border-radius: 10px;
-
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    padding-bottom: 10px;
+    font-size: 18px;
+    border-bottom: 2px solid rgba(188, 188, 188, 0.139);
 }
 
 .task h2:active {
@@ -142,20 +141,18 @@ input::placeholder {
 /* TASK DESCRIPTION */
 .task p {
     font-size: 20px;
+    font-weight: bold;
 }
 
 /* NO TASKS */
 .no-tasks {
-    width: 100%;
+    width: fit-content;
     height: 100%;
-    margin-top: 20px;
 
-    text-align: center;
     font-size: 30px;
     font-weight: bold;
     color: gray;
-
-    align-self: center;
+    place-self: center;
 }
 
 @media (max-width: 480px) {
