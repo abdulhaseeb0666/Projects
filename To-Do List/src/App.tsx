@@ -1,7 +1,7 @@
 import { useState } from "react";
 import InputField from "./components/InputField";
 import type { todos } from "./components/InputField";
-import TodoList from "./components/todoList";
+import TodoList from "./components/TodoList";
 
 const App = () => {
   const [title, settitle] = useState("")
