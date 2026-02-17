@@ -1,133 +1,228 @@
-*{
-    padding: 0;
+/* RESET & BASE STYLES */
+* {
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-body{
-    background-color: black;
+body {
+    background-color: #000;
+    color: #fff;
     padding: 10px;
-    color: white;
 }
 
-form{
+/* FORM */
+form,
+.todo-list {
     background-color: rgb(25, 23, 23);
-    height: fit-content ;
-    border: 2px solid white;
+    border: 2px solid #fff;
     padding: 10px;
     border-radius: 10px;
-}
-
-.form{
     display: flex;
     flex-direction: column;
-    width: 50%;
 }
 
-p{
-    color: white;
-    font-size: small;
-    font-weight: 600;
+form {
+    gap: 5px;
+}
+
+form p {
     margin: 5px 0;
+    font-size: 20px;
+    font-weight: 600;
 }
 
+/*   INPUTS */
 input,
-textarea{
-    background-color: rgb(56, 56, 56); 
-    border: none;  
-    padding: 5px;
+.task {
+    background-color: rgb(56, 56, 56);
     border: 1px solid grey;
     border-radius: 3px;
-    color: white;
+    padding: 5px;
+    color: #fff;
 }
 
-#heading{   
-    color: white;
-    font-size: 15px;
+input {
+    font-size: 18px;
 }
 
-.submit-button{
-    cursor: pointer;
-    border: 2px white solid;
-    background-color: rgb(58, 142, 179);
-    padding: 5px 10px;
-    border-radius: 10px;
+input::placeholder {
+    color: #fff;
+}
+
+/* SUBMIT BUTTON */
+.submit-button {
+    width: 100px;
     margin-top: 10px;
+    padding: 5px 10px;
+    place-self: center;
+
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+
+    background-color: rgb(58, 142, 179);
+    border: 2px solid #fff;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
-::placeholder{
-    color: white;
-    text-align: left;
-    vertical-align: top;
+.submit-button:hover {
+    background-color: rgba(58, 142, 179, 0.8);
 }
 
-.app{
+.submit-button:active {
+    transform: scale(0.98);
+}
+
+/* APP LAYOUT */
+.app {
+    width: 40%;
+    margin-left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 20px;
 }
 
-.todo-list{
-    background-color: rgb(25, 23, 23);
-    height: fit-content ;
-    border: 2px solid white;
-    padding: 10px;
-    border-radius: 10px;
-    width: 50%;
-    margin-left: 2px;
-    height: 640px;
+#details {
+    margin-top: 10px;
 }
 
-.todo-list h1{
+/* TODO LIST */
+.todo-list {
+    height: 58vh;
+}
+
+.todo-list h1 {
     text-align: center;
     margin: 5px;
 }
 
-.task{
-    background-color: rgb(56, 56, 56); 
-    border: none;  
-    padding: 5px;
-    border: 1px solid grey;
-    border-radius: 3px;
-    color: white;
-    margin: 10px 0;
+/* TASKS */
+.tasks {
+    margin-top: 10px;
     display: flex;
-    
+    flex-direction: column;
+    gap: 10px;
 }
 
-.task h2{
-    font-size: 20px;
-    border-radius: 10px;
-    border: 2px rgb(220, 216, 216) solid;
-    padding: 3px 6px;
-    background-color: red;
-    margin-right: 10px;
+.task {
+    margin: 10px 0;
+    display: flex;
+}
+
+/* Task Title */
+.task h2 {
     width: 100px;
+    margin-right: 10px;
+    padding: 3px 6px;
+
+    font-size: 20px;
+    background-color: red;
+    border: 2px solid rgb(220, 216, 216);
+    border-radius: 10px;
+
     overflow: hidden;
-    text-wrap: nowrap;
+    white-space: nowrap;
     text-overflow: ellipsis;
 }
 
-.task h2:active{
-    white-space: normal; /* Default value, allows text to wrap */
-    overflow: visible; /* Default value, allows content to render outside the box if needed */
-    text-overflow: clip;
-    white-space: nowrap;
+.task h2:active {
     width: auto;
+    overflow: visible;
+    text-overflow: clip;
 }
 
-.task p{
+/* TASK DESCRIPTION */
+.task p {
     font-size: 20px;
-    font-weight: normal;
-
 }
 
-@media (max-width: 900px){
-    .app{
-        flex-direction: column;
+/* NO TASKS */
+.no-tasks {
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: gray;
+
+    align-self: center;
+}
+
+@media (max-width: 480px) {
+
+    body {
+        padding: 8px;
     }
-    .form, .todo-list{
+
+    .app {
+        width: 95%;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        gap: 15px;
+    }
+
+    form p,
+    input,
+    .submit-button,
+    .task h2,
+    .task p {
+        font-size: 16px;
+    }
+
+    .submit-button {
         width: 100%;
+    }
+
+    .todo-list {
+        height: auto;
+        min-height: 50vh;
+    }
+
+    .task {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .task h2 {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+    .app {
+        width: 85%;
+    }
+
+    .submit-button {
+        width: 120px;
+    }
+
+    .task h2 {
+        width: 80px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    .app {
+        width: 70%;
+    }
+
+    .todo-list {
+        height: 60vh;
+    }
+
+    form p,
+    input,
+    .task p {
+        font-size: 18px;
     }
 }

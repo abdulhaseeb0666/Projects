@@ -40,12 +40,12 @@ const InputField = ({title, settitle, details, setdetails, todos, settodos}: Pro
   return (
     <>
       <form className="form">
-        <p id="heading">Title: </p>
-        <input type="text" placeholder='Enter Title' className="input" value={title} onChange={(event)=>{
+        <p id="title">Title: </p>
+        <input type="text" placeholder='Enter Title' className="title-input" value={title} onChange={(event)=>{
           settitle(event.target.value)
         }} />
-        <p id="heading">Details: </p>
-        <textarea placeholder='Enter Details' className="input" value={details} onChange={(event)=>{
+        <p id="details">Details: </p>
+        <input placeholder='Enter Details' className="details-input" value={details} onChange={(event)=>{
           setdetails(event.target.value)
         }} />
         <button type='submit' className='submit-button' onClick={(e)=>{submitForm(e)}}>Submit</button>
