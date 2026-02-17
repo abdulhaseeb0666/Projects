@@ -4,6 +4,8 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(70, 22, 22) #191717;
 }
 
 body {
@@ -106,11 +108,13 @@ input::placeholder {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    overflow: auto;
 }
 
 .task {
     margin: 10px 0;
     display: flex;
+    width: 98%;
 }
 
 /* Task Title */
