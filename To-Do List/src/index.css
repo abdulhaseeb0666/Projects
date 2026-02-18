@@ -307,3 +307,85 @@ input::placeholder {
         font-size: 12px;
     }
 }
+
+@media (max-width: 200px) {
+
+    /* GLOBAL */
+    body {
+        font-size: 12px;
+    }
+
+    .app {
+        padding: 6px;
+        gap: 10px;
+    }
+
+    /* FORM */
+    form {
+        padding: 6px;
+        gap: 4px;
+    }
+
+    form p {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    input {
+        font-size: 12px;
+        padding: 4px;
+    }
+
+    /* BUTTON */
+    .submit-button {
+        width: 100%;
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    /* TODO LIST */
+    .todo-list {
+        padding: 6px;
+    }
+
+    .todo-list h1 {
+        font-size: 16px;
+    }
+
+    /* TASK */
+    .task {
+        padding: 4px;
+        gap: 4px;
+    }
+
+    .task h2 {
+        font-size: 14px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .task h2 button {
+        font-size: 12px;
+    }
+
+    .task p {
+        font-size: 14px;
+    }
+
+    /* NO TASKS */
+    .no-tasks {
+        font-size: 16px;
+        padding: 6px;
+        text-align: center;
+    }
+
+    /* FOOTER */
+    .footer {
+        padding: 6px;
+        font-size: 11px;
+        flex-direction: column;
+        text-align: center;
+        gap: 2px;
+    }
+}
