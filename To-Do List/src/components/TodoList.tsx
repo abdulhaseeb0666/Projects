@@ -1,5 +1,5 @@
 import type { todos } from "./InputField"
-import DeleteTodo from "./deleteTodo";
+import DeleteTodo from "./DeleteTodo";
 
 const TodoList: React.FC<{ todos: todos[] , settodos: React.Dispatch<React.SetStateAction<todos[]>> }> = ({ todos, settodos }) => {
 
