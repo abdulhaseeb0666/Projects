@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 export type todos = {
   title: string;
   details: string;
@@ -14,10 +16,9 @@ interface Props {
 
 const InputField = ({title, settitle, details, setdetails, todos, settodos}: Props) => {
   
-
   function submitForm(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
-
+    
     const newTodo = {
       title: title,
       details: details
@@ -29,13 +30,18 @@ const InputField = ({title, settitle, details, setdetails, todos, settodos}: Pro
     }
     else{
       const updatedTodos = [...todos, newTodo];
-      settodos(updatedTodos);
+      localStorage.setItem("todos", JSON.stringify(updatedTodos));
+      settodos(updatedTodos);   
     }
     settitle("");
     setdetails("");
-
+    
     console.log(todos);
-  }
+
+  } 
+  
+  useEffect(() => {
+  }, [todos]);
 
   return (
     <>
