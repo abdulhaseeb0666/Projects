@@ -1,6 +1,7 @@
 import type { todos } from "./InputField"
+import DeleteTodo from "./deleteTodo";
 
-const TodoList: React.FC<{ todos: todos[] }> = () => {
+const TodoList: React.FC<{ todos: todos[] , settodos: React.Dispatch<React.SetStateAction<todos[]>> }> = ({ todos, settodos }) => {
 
   return (
     <div className="todo-list">
@@ -12,7 +13,10 @@ const TodoList: React.FC<{ todos: todos[] }> = () => {
           localStorage.getItem("todos") != null ? (
             JSON.parse(localStorage.getItem("todos") || "[]").map((todo: todos, index: number) => {
               return <div className="task" key={index}>
-                <h2>{todo.title}</h2>
+                <h2>
+                  {todo.title}
+                  {DeleteTodo(todos, settodos, index)}
+                </h2>
                 <p>{todo.details}</p>
               </div>
             })

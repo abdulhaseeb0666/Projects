@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-
 export type todos = {
   title: string;
   details: string;
@@ -15,6 +13,7 @@ interface Props {
 }
 
 const InputField = ({title, settitle, details, setdetails, todos, settodos}: Props) => {
+
   
   function submitForm(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
@@ -40,9 +39,6 @@ const InputField = ({title, settitle, details, setdetails, todos, settodos}: Pro
 
   } 
   
-  useEffect(() => {
-  }, [todos]);
-
   return (
     <>
       <form className="form">

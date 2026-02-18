@@ -132,6 +132,17 @@ input::placeholder {
     padding-bottom: 10px;
     font-size: 18px;
     border-bottom: 2px solid rgba(188, 188, 188, 0.139);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task h2 button {
+    font-size: 15px;
+    color: red;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
 }
 
 .task h2:active {
