@@ -9,7 +9,7 @@ const DeleteTodo = (todos: todos[], settodos: React.Dispatch<React.SetStateActio
     settodos(updatedTodos);
   }
 
-  return <button onClick={deleteTodo}>Delete</button>
+  return <button onClick={deleteTodo}>Completed</button>
 
 }
 
