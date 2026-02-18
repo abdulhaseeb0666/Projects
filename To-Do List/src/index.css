@@ -9,7 +9,24 @@
 body {
     background-color: #000;
     color: #fff;
-    padding: 10px;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100vh;
+}
+
+/* APP LAYOUT */
+.app {
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* FORM */
@@ -25,6 +42,8 @@ form,
 
 form {
     gap: 5px;
+    height: 240px;
+    width: 40%;
 }
 
 form p {
@@ -76,23 +95,14 @@ input::placeholder {
     transform: scale(0.98);
 }
 
-/* APP LAYOUT */
-.app {
-    width: 40%;
-    margin-left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
 #details {
     margin-top: 10px;
 }
 
 /* TODO LIST */
 .todo-list {
-    height: 58vh;
+    width: 60%;
+    height: 100%;
     padding: 10px 20px;
 }
 
@@ -122,7 +132,7 @@ input::placeholder {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    height: 100px;
+    height: auto;
 }
 
 /* Task Title */
@@ -172,75 +182,128 @@ input::placeholder {
     align-items: center;
 }
 
-@media (max-width: 480px) {
+/* FOOTER */
+.footer {
+    background-color: rgb(44, 14, 14);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+}
 
-    body {
-        padding: 8px;
-    }
+.footer #app-name {
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+}
 
+.footer #copyrights {
+    color: #9a9a9a;
+    font-size: 13px;
+}
+
+.footer #developer-name {
+    color: #f5f5f5;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.footer #developer-name:hover {
+    color: #ff9800;
+    cursor: pointer;
+}
+
+@media (max-width: 800px) {
+
+    /* APP LAYOUT */
     .app {
-        width: 95%;
-        margin-left: 50%;
-        transform: translateX(-50%);
-        gap: 15px;
+        flex-direction: column;
+        align-items: stretch;
+        height: auto;
     }
 
-    form p,
-    input,
-    .submit-button,
-    .task h2,
-    .task p {
+    /* FORM & TODO LIST */
+    form,
+    .todo-list {
+        width: 100%;
+    }
+
+    form {
+        height: auto;
+    }
+
+    /* TASK LIST HEIGHT FIX */
+    .todo-list {
+        min-height: 300px;
+    }
+
+    /* INPUT TEXT SIZE */
+    input {
         font-size: 16px;
     }
 
-    .submit-button {
-        width: 100%;
+    /* TASK TEXT */
+    .task p {
+        font-size: 18px;
     }
 
-    .todo-list {
-        height: auto;
-        min-height: 50vh;
-    }
-
-    .task {
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    .task h2 {
-        width: 100%;
+    /* FOOTER */
+    .footer {
+        flex-wrap: wrap;
+        justify-content: center;
         text-align: center;
     }
 }
 
-@media (min-width: 481px) and (max-width: 767px) {
+@media (max-width: 400px) {
 
+    /* GLOBAL PADDING REDUCTION */
     .app {
-        width: 85%;
+        padding: 10px;
+        gap: 15px;
     }
 
-    .submit-button {
-        width: 120px;
-    }
-
-    .task h2 {
-        width: 80px;
-    }
-}
-
-@media (min-width: 768px) and (max-width: 1024px) {
-
-    .app {
-        width: 70%;
-    }
-
-    .todo-list {
-        height: 60vh;
-    }
-
-    form p,
-    input,
-    .task p {
+    /* FORM */
+    form p {
         font-size: 18px;
+        text-align: center;
+    }
+
+    input {
+        font-size: 15px;
+        padding: 6px;
+    }
+
+    /* SUBMIT BUTTON */
+    .submit-button {
+        width: 100%;
+        font-size: 18px;
+    }
+
+    /* TASK */
+    .task h2 {
+        font-size: 16px;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .task p {
+        font-size: 16px;
+    }
+
+    /* NO TASK MESSAGE */
+    .no-tasks {
+        font-size: 22px;
+        text-align: center;
+        padding: 10px;
+    }
+
+    /* FOOTER */
+    .footer {
+        flex-direction: column;
+        gap: 4px;
+        font-size: 12px;
     }
 }

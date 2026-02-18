@@ -2,7 +2,7 @@ import { useState } from "react";
 import type { todos } from "./components/InputField";
 import InputField from "./components/InputField";
 import TodoList from "./components/TodoList";
-
+import Footer from "./components/Footer";
 const App = () => {
   
   const [title, settitle] = useState("")
@@ -19,9 +19,12 @@ const App = () => {
   }
 
   return (
-    <div className="app">
-      <InputField title={title} settitle={settitle} details={details} setdetails={setdetails} todos={todos} settodos={settodos}/>
-      <TodoList todos={todos} settodos={settodos} />
+    <div className="app-container">
+      <div className="app">
+        <InputField title={title} settitle={settitle} details={details} setdetails={setdetails} todos={todos} settodos={settodos}/>
+        <TodoList todos={todos} settodos={settodos} />
+      </div>
+      <Footer />
     </div>
   )
 }

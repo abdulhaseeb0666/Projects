@@ -1,0 +1,13 @@
+import React from 'react'
+
+const Footer = () => {
+  return (
+    <div className='footer'>
+        <h1 id='app-name'>To-Do List</h1>
+        <p id='copyrights'>Copyright &copy; 2026</p>
+        <p id='developer-name'>Developed by: <span>Abdul Haseeb</span></p>
+    </div>
+  )
+}
+
+export default Footer
