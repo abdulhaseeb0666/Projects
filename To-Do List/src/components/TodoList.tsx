@@ -12,18 +12,20 @@ const TodoList: React.FC<{ todos: todos[] , settodos: React.Dispatch<React.SetSt
         {
           localStorage.getItem("todos") != null ? (
             JSON.parse(localStorage.getItem("todos") || "[]").map((todo: todos, index: number) => {
-              return <div className="task" key={index}>
-                <h2>
-                  {todo.title}
-                  <span>
-                    Remaining Days: {todo.remainingdays}
-                  </span>
-                </h2>
-                <p>
-                  {todo.details}
-                </p>
-                  {DeleteTodo(todos, settodos, index)}
-              </div>
+              return (
+                <div className="task" key={index}>
+                  <div className="task-header">
+                    <h3>{todo.title}</h3>
+                    <span>
+                      Remaining Days: {todo.remainingdays}
+                    </span>
+                  </div>
+                  <p>
+                    {todo.details}
+                  </p>
+                    {DeleteTodo(todos, settodos, index)}
+                </div>
+              )
             })
           ) : (
               <p className="no-tasks">No pending tasks</p>
