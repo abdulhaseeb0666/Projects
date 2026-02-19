@@ -15,9 +15,14 @@ const TodoList: React.FC<{ todos: todos[] , settodos: React.Dispatch<React.SetSt
               return <div className="task" key={index}>
                 <h2>
                   {todo.title}
-                  {DeleteTodo(todos, settodos, index)}
+                  <span>
+                    Remaining Days: {todo.remainingdays}
+                  </span>
                 </h2>
-                <p>{todo.details}</p>
+                <p>
+                  {todo.details}
+                </p>
+                  {DeleteTodo(todos, settodos, index)}
               </div>
             })
           ) : (

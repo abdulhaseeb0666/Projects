@@ -42,7 +42,7 @@ form,
 
 form {
     gap: 5px;
-    height: 240px;
+    height: fit-content;
     width: 40%;
 }
 
@@ -128,7 +128,8 @@ input::placeholder {
 }
 
 .task {
-    margin: 10px 0;
+    margin: 0px 0;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -137,8 +138,6 @@ input::placeholder {
 
 /* Task Title */
 .task h2 {
-    margin-right: 10px;
-    padding: 3px 6px;
     padding-bottom: 10px;
     font-size: 18px;
     border-bottom: 2px solid rgba(188, 188, 188, 0.139);
@@ -147,12 +146,11 @@ input::placeholder {
     align-items: center;
 }
 
-.task h2 button {
-    font-size: 15px;
-    color: red;
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
+.task h2 span {
+    font-size: 14px;
+    color: #9a9a9a;
+    display: flex;
+    flex-direction: column;
 }
 
 .task h2:active {
@@ -161,10 +159,23 @@ input::placeholder {
     text-overflow: clip;
 }
 
+.task button {
+    font-size: 16px;
+    font-weight: bold;  
+    color: red;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    align-self: flex-end;
+}
+
+
 /* TASK DESCRIPTION */
 .task p {
     font-size: 20px;
     font-weight: bold;
+    display: flex;
+    flex-direction: column;
 }
 
 /* NO TASKS */

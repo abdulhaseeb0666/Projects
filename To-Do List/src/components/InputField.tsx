@@ -1,6 +1,8 @@
 export type todos = {
   title: string;
   details: string;
+  lastdate: string;
+  remainingdays?: number;
 }
 
 interface Props {
@@ -8,35 +10,55 @@ interface Props {
   settitle: React.Dispatch<React.SetStateAction<string>>;
   details: string;
   setdetails: React.Dispatch<React.SetStateAction<string>>;
+  lastdate: string;
+  setlastdate: React.Dispatch<React.SetStateAction<string>>;
+  remainingdays: number;
+  setremainingdays: React.Dispatch<React.SetStateAction<number>>;
   todos: todos[];
   settodos: React.Dispatch<React.SetStateAction<todos[]>>;
 }
 
-const InputField = ({title, settitle, details, setdetails, todos, settodos}: Props) => {
+const InputField = ({title, settitle, details, setdetails, lastdate, setlastdate, remainingdays, setremainingdays, todos, settodos}: Props) => {
+ 
+  function getTodaysDate(): string {
+    const today: Date = new Date();
+    const date: string = today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
+    return date;
+  }
 
-  
+  function calcRemainingDays(lastdate: string): number {
+    const today = getTodaysDate();
+    let remaindays = Date.parse(lastdate) - Date.parse(today);  
+    remaindays = Math.floor(remaindays / (1000 * 60 * 60 * 24));
+    return remaindays;
+  }
+    
   function submitForm(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
-    
+
     const newTodo = {
       title: title,
-      details: details
+      details: details,
+      lastdate: lastdate,
+      remainingdays: remainingdays
     }
 
-    if(title === "" || details === "") {
+    if(title === "" || details === "" || lastdate === "") {
       console.error("Please fill in all the fields");
       return;
     }
     else{
+
       const updatedTodos = [...todos, newTodo];
       localStorage.setItem("todos", JSON.stringify(updatedTodos));
       settodos(updatedTodos);   
     }
+
     settitle("");
     setdetails("");
+    setlastdate("");
     
     console.log(todos);
-
   } 
   
   return (
@@ -49,6 +71,11 @@ const InputField = ({title, settitle, details, setdetails, todos, settodos}: Pro
         <p id="details">Details: </p>
         <input placeholder='Enter Details' className="details-input" value={details} onChange={(event)=>{
           setdetails(event.target.value)
+        }} />
+        <p id="date">DATE: </p>
+        <input type="date" className="lastdate-input" value={lastdate} onChange={(event)=>{
+          setlastdate(event.target.value);
+          setremainingdays(calcRemainingDays(event.target.value));
         }} />
         <button type='submit' className='submit-button' onClick={(e)=>{submitForm(e)}}>Submit</button>
       </form>
