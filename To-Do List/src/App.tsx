@@ -16,7 +16,7 @@ const App: React.FC = () => {
   });
 
   // Remove "todos" from localStorage if it's an empty array
-  const todosInLocalStorage = localStorage.getItem("todos");
+  const todosInLocalStorage: string | null = localStorage.getItem("todos");
   if(todosInLocalStorage == "[]") {
     localStorage.removeItem("todos");
   }

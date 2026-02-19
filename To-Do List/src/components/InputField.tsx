@@ -27,16 +27,16 @@ const InputField = ({title, settitle, details, setdetails, lastdate, setlastdate
   }
 
   function calcRemainingDays(lastdate: string): number {
-    const today = getTodaysDate();
-    let remaindays = Date.parse(lastdate) - Date.parse(today);  
-    remaindays = Math.floor(remaindays / (1000 * 60 * 60 * 24));
-    return remaindays;
+    const today:string = getTodaysDate();
+    let remainingdays = Date.parse(lastdate) - Date.parse(today);  
+    remainingdays = Math.floor(remainingdays / (1000 * 60 * 60 * 24));
+    return remainingdays;
   }
     
   function submitForm(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
 
-    const newTodo = {
+    const newTodo: todos = {
       title: title,
       details: details,
       lastdate: lastdate,
@@ -49,7 +49,7 @@ const InputField = ({title, settitle, details, setdetails, lastdate, setlastdate
     }
     else{
 
-      const updatedTodos = [...todos, newTodo];
+      const updatedTodos: todos[] = [...todos, newTodo];
       localStorage.setItem("todos", JSON.stringify(updatedTodos));
       settodos(updatedTodos);   
     }
