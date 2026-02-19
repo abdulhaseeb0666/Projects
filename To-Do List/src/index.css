@@ -236,177 +236,127 @@ input::placeholder {
 }
 
 @media (max-width: 800px) {
+  .app {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 15px;
+    padding: 10px;
+  }
 
-    /* APP LAYOUT */
-    .app {
-        flex-direction: column;
-        align-items: stretch;
-        height: auto;
-    }
+  form {
+    width: 100%;
+    height: fit-content;
+  }
 
-    /* FORM & TODO LIST */
-    form,
-    .todo-list {
-        width: 100%;
-    }
+  .todo-list {
+    width: 100%;
+    height: 400px; /* give some scrollable height */
+  }
 
-    form {
-        height: auto;
-    }
+  .task .task-header h3 {
+    font-size: 18px;
+  }
 
-    /* TASK LIST HEIGHT FIX */
-    .todo-list {
-        min-height: 300px;
-    }
+  .task p {
+    font-size: 18px;
+  }
 
-    /* INPUT TEXT SIZE */
-    input {
-        font-size: 16px;
-    }
+  .submit-button {
+    width: 90px;
+    font-size: 18px;
+  }
 
-    /* TASK TEXT */
-    .task p {
-        font-size: 18px;
-    }
-
-    /* FOOTER */
-    .footer {
-        flex-wrap: wrap;
-        justify-content: space-around;
-        align-items: center;
-        text-align: center;
-    }
+  .footer {
+    flex-direction: column;
+    gap: 5px;
+  }
 }
 
 @media (max-width: 400px) {
+  .app {
+    gap: 10px;
+    padding: 5px;
+  }
 
-    /* GLOBAL PADDING REDUCTION */
-    .app {
-        padding: 10px;
-        gap: 15px;
-    }
+  form {
+    padding: 8px;
+  }
 
-    /* FORM */
-    form p {
-        font-size: 18px;
-        text-align: center;
-    }
+  input {
+    font-size: 16px;
+  }
 
-    input {
-        font-size: 15px;
-        padding: 6px;
-    }
+  .submit-button {
+    width: 80px;
+    font-size: 16px;
+  }
 
-    /* SUBMIT BUTTON */
-    .submit-button {
-        width: 100%;
-        font-size: 18px;
-    }
+  .task .task-header h3 {
+    font-size: 16px;
+  }
 
-    /* TASK */
-    .task h2 {
-        font-size: 16px;
-        flex-wrap: wrap;
-        gap: 6px;
-    }
+  .task .task-header span {
+    font-size: 10px;
+  }
 
-    .task p {
-        font-size: 16px;
-    }
+  .task p {
+    font-size: 16px;
+  }
 
-    /* NO TASK MESSAGE */
-    .no-tasks {
-        font-size: 22px;
-        text-align: center;
-        padding: 10px;
-    }
+  .todo-list {
+    height: 300px;
+    padding: 5px 10px;
+  }
 
-    /* FOOTER */
-    .footer {
-        flex-direction: column;
-        gap: 4px;
-        font-size: 12px;
-    }
+  .footer {
+    font-size: 12px;
+    flex-direction: column;
+    gap: 3px;
+  }
 }
 
 @media (max-width: 200px) {
+  body {
+    font-size: 10px;
+  }
 
-    /* GLOBAL */
-    body {
-        font-size: 12px;
-    }
+  .app {
+    padding: 2px;
+    gap: 5px;
+  }
 
-    .app {
-        padding: 6px;
-        gap: 10px;
-    }
+  form, .todo-list {
+    width: 100%;
+    padding: 2px;
+  }
 
-    /* FORM */
-    form {
-        padding: 6px;
-        gap: 4px;
-    }
+  input {
+    font-size: 12px;
+    padding: 2px;
+  }
 
-    form p {
-        font-size: 14px;
-        text-align: center;
-    }
+  .submit-button {
+    width: 70px;
+    font-size: 12px;
+    padding: 2px 4px;
+  }
 
-    input {
-        font-size: 12px;
-        padding: 4px;
-    }
+  .task .task-header h3 {
+    font-size: 10px;
+  }
 
-    /* BUTTON */
-    .submit-button {
-        width: 100%;
-        font-size: 14px;
-        padding: 6px;
-    }
+  .task p {
+    font-size: 12px;
+  }
 
-    /* TODO LIST */
-    .todo-list {
-        padding: 6px;
-    }
+  .todo-list {
+    height: 200px;
+  }
 
-    .todo-list h1 {
-        font-size: 16px;
-    }
-
-    /* TASK */
-    .task {
-        padding: 4px;
-        gap: 4px;
-    }
-
-    .task h2 {
-        font-size: 14px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 4px;
-    }
-
-    .task h2 button {
-        font-size: 12px;
-    }
-
-    .task p {
-        font-size: 14px;
-    }
-
-    /* NO TASKS */
-    .no-tasks {
-        font-size: 16px;
-        padding: 6px;
-        text-align: center;
-    }
-
-    /* FOOTER */
-    .footer {
-        padding: 6px;
-        font-size: 11px;
-        flex-direction: column;
-        text-align: center;
-        gap: 2px;
-    }
+  .footer {
+    font-size: 10px;
+    flex-direction: column;
+    gap: 2px;
+  }
 }
