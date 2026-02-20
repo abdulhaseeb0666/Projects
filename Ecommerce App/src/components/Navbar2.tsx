@@ -9,7 +9,7 @@ const Navbar2 = () => {
 
         <li key={category.main} className="relative group text-center font-bold cursor-pointer list-none hover:text-gray-700">
           <span>{category.main}</span>
-          <ul className={`w-fit whitespace-nowrap absolute bg-gray-600 opacity-0 invisible top-full flex gap-2 rounded-xl shadow-amber-900 p-3 flex-col group-hover:opacity-100 group-hover:visible ${index === categories.length - 1 ? "left-[-50%]" : "left-0"}  `}>
+          <ul className={`w-fit whitespace-nowrap absolute bg-gray-600 shadow-md shadow-gray-500 opacity-0 invisible top-full flex gap-2 rounded-xl p-3 flex-col group-hover:opacity-100 group-hover:visible ${index === categories.length - 1 ? "left-[-50%]" : "left-0"}  `}>
             {category.sub.map((subItem) => (
             <li key={subItem} className="text-center font-bold cursor-pointer list-none text-white hover:text-blue-400">{subItem}</li>
             ))}
