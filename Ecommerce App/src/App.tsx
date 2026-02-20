@@ -1,9 +1,23 @@
+import {Routes, Route, } from "react-router-dom"
+import Navbar from "./components/Navbar"
+import Home from "./pages/Home"
+import Contact from "./pages/Contact"
+import About from "./pages/About"
+import Products from "./pages/Products"
+import NotFound from "./pages/Not Found"
+
 const App = () => {
   return (
     <div>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>      
+      <Navbar /> 
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about-us" element={<About />} />
+
+        <Route path='*' element={<NotFound />} />
+      </Routes>
     </div>
   )
 }
