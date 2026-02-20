@@ -5,11 +5,13 @@ import Contact from "./pages/Contact"
 import About from "./pages/About"
 import Products from "./pages/Products"
 import NotFound from "./pages/Not Found"
+import Navbar2 from "./components/Navbar2"
 
 const App = () => {
   return (
     <div>
       <Navbar /> 
+      <Navbar2 />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
