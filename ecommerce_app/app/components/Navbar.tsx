@@ -3,7 +3,7 @@ import Link from "next/link"
 
 const Navbar = () => {
   return (
-    <nav className="bg-gray-900 w-full h-fit flex text-white font-bold items-center justify-between py-2 px-4">
+    <nav className="bg-gray-900 h-fit flex text-white font-bold items-center justify-between py-2 px-4">
         <div className="flex items-center gap-10">
             <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfOTbSSEiEXBDYndLMpKOO0EQFZGYDChWE0w&s" alt="logo" width={70} height={70} loading="eager" className="rounded-full" />
             <h1 className="font-bold text-3xl">My Web App</h1>

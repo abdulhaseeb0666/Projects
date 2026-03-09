@@ -1,16 +1,68 @@
-"use client";
+import ProductCategories from "../components/ProductCategories";
+import ProductCard from "../components/ProductCard";
 
-import { useContext } from "react";
-import ProductsListAPI from "@/contexts/ProductsListAPI";
+export type Product = {
+  id: number;
+  title: string;
+  description: string;
+  brand: string;
+  category: string;
+  price: number;
+  discountPercentage: number;
+  rating: number;
+  stock: number;
+  sku: string;
+  tags: string[];
+  availabilityStatus: string; // e.g., "In Stock"
+  images: string[];
+  thumbnail: string;
+  minimumOrderQuantity: number;
+  returnPolicy: string;
+  shippingInformation: string;
+  warrantyInformation: string;
+  weight: number;
 
-const Page = () => {
+  dimensions: {
+    width: number;
+    height: number;
+    depth: number;
+  };
 
-  const products = useContext(ProductsListAPI);
-    console.log(products);
+  meta: {
+    createdAt: string; // ISO date
+    updatedAt: string; // ISO date
+    barcode: string;
+    qrCode: string;
+  };
 
+  reviews: {
+    user: string;
+    rating: number;
+    comment: string;
+    createdAt: string;
+  }[];
+};
+
+const Page = async () => {
+
+  const res = await fetch("https://dummyjson.com/products?sortBy=title&order=asc&limit=100");
+  const products = await res.json();
+  const Products = products.products;
+  
   return (
     <div>
-      
+      <ProductCategories />
+
+      <div className="flex flex-wrap justify-around gap-y-10 p-3">
+        { 
+          Products.map((product : Product , index : number) => {
+            return(
+              <ProductCard params={{ product, index }} key={index} />
+            )
+          })
+        }
+      </div>
+
     </div>
   )
 }
