@@ -1,5 +1,12 @@
 import ProductCategories from "../components/ProductCategories";
 import ProductCard from "../components/ProductCard";
+import type { Metadata } from "next";
+
+export const metadata : Metadata = {
+  title: "Products",
+  description: "Products Page for CartNova",
+}
+
 
 export type Product = {
   id: number;
@@ -36,10 +43,11 @@ export type Product = {
   };
 
   reviews: {
-    user: string;
-    rating: number;
-    comment: string;
-    createdAt: string;
+    comment : string;
+    date : string;
+    rating : number;
+    reviewerEmail : string;
+    reviewerName : string;
   }[];
 };
 
@@ -53,11 +61,11 @@ const Page = async () => {
     <div>
       <ProductCategories />
 
-      <div className="flex flex-wrap justify-around gap-y-10 p-3">
+      <div className="flex flex-wrap justify-around gap-y-10 p-3 max-[900px]:gap-y-8 max-[700px]:gap-y-6 max-[500px]:gap-y-4 max-[200px]:gap-y-2">
         { 
           Products.map((product : Product , index : number) => {
             return(
-              <ProductCard params={{ product, index }} key={index} />
+              <ProductCard params={{ product, index }} key={index}/>
             )
           })
         }
