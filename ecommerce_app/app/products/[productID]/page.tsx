@@ -11,11 +11,6 @@ export const metadata : Metadata = {
 }
 
 const page = async ({params} : {params : {productID : string}}) => {
-  
-  const randomNumber = Math.floor(Math.random() * 10);
-  if(randomNumber > 5){
-    throw new Error("Random Number is Greater than 5.");
-  }
 
   const productID = (await params).productID;
   const res = await fetch(`https://dummyjson.com/products/${productID}`);
