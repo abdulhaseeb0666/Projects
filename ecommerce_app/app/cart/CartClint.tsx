@@ -26,6 +26,12 @@ const CartClient = () => {
   const image = searchParams.get("image");
   
   const [cart, setCart] = useState<CartItem[]>([]);
+  
+  function removeItem(e : string | null) {
+    const updatedCart = cart.filter(p => p.id !== e);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    setCart(updatedCart);
+  }
 
   useEffect(() => {
     const storedCart = localStorage.getItem("cart");
@@ -88,6 +94,7 @@ const CartClient = () => {
               <p><b>Quantity: </b>{item.quantity}</p>
               <p><b>Price: </b>${item.price.toFixed(0)}</p>
             </div>
+            <button id={String(index)} onClick={()=>{removeItem(item.id)}} className="bg-red-500 h-fit w-fit place-self-end text-white text-xl cursor-pointer active:scale-90 px-2 py-1 rounded-2xl border border-black">Remove</button>
           </div>
         ))
       )}
