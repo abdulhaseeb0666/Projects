@@ -21,9 +21,9 @@ const page = () => {
               <h1 className="font-md text-blue-500 font-semibold text-md ">Visit Us At</h1>
               <p>7428 Maple Ridge Drive, Apt 3B, Denver, CO 80219, United States</p>
               <h1 className="font-md text-blue-500 font-semibold text-md ">Support and Sales</h1>
-              <p>+1 (123) 456-7890</p>
+              <p>+92 3206608577</p>
               <h1 className="font-md text-blue-500 font-semibold text-md">Email</h1>
-              <p>q7C5o@random.com</p>
+              <p>abdulhaseebah7886786@gmail.com</p>
             </div>
           </div>
           
