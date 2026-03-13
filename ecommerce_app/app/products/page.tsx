@@ -1,6 +1,7 @@
 import ProductCategories from "../components/ProductCategories";
 import ProductCard from "../components/ProductCard";
 import type { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata : Metadata = {
   title: "Products",
@@ -53,19 +54,22 @@ export type Product = {
 
 const Page = async () => {
 
-  const res = await fetch("https://dummyjson.com/products?sortBy=title&order=asc&limit=100");
+  const res = await fetch("https://dummyjson.com/products?sortBy=title&order=asc&sleep=2000&limit=100");
   const products = await res.json();
   const Products = products.products;
   
   return (
     <div>
-      <ProductCategories />
-
+        <ProductCategories />
       <div className="flex flex-wrap justify-around gap-y-10 p-3 max-[900px]:gap-y-8 max-[700px]:gap-y-6 max-[500px]:gap-y-4 max-[200px]:gap-y-2">
         { 
           Products.map((product : Product , index : number) => {
             return(
-              <ProductCard params={{ product, index }} key={index}/>
+              <div key={index}>
+              <Suspense fallback="loading products....">
+                <ProductCard params={{ product, index }}/>
+              </Suspense>
+              </div>
             )
           })
         }

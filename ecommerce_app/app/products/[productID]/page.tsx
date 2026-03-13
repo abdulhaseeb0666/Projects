@@ -4,6 +4,8 @@ import Link from "next/link";
 import ProductReview from "@/app/components/ProductReview";
 import ProductCard from "@/app/components/ProductCard";
 import type { Metadata } from "next";
+import { Suspense } from "react";
+import AddToCart from "@/app/components/AddToCart";
 
 export const metadata : Metadata = {
   title: "Product",
@@ -11,12 +13,11 @@ export const metadata : Metadata = {
 }
 
 const page = async ({params} : {params : {productID : string}}) => {
-
+ 
   const productID = (await params).productID;
   const res = await fetch(`https://dummyjson.com/products/${productID}`);
   const data = await res.json();
   const product : Product = data;
-  console.log(product);
 
   const reviews  = product.reviews;
   const category = product.category;
@@ -34,10 +35,18 @@ const page = async ({params} : {params : {productID : string}}) => {
           <ImageGallery params={{productImages}} />
         </div>
         <div className="px-5 w-[60%] flex flex-col gap-3">
-          <h1 className="text-4xl font-bold">{product.title}</h1>
+          <Suspense fallback={<h1 className="text-4xl font-bold">Loading...</h1>}>
+            <h1 className="text-4xl font-bold">{product.title}</h1>
+          </Suspense>
+          <Suspense fallback={<h1>Loading...</h1>}>
           <p className="font-medium text-2xl text-gray-700">{product.description}</p>
+          </Suspense>
+          <Suspense fallback={<h1>Loading...</h1>}>
           <p className="text-xl font-bold">${product.price.toFixed(0)}</p>
+          </Suspense>
+          <Suspense fallback={<h1>Loading...</h1>}>
           <p className="text-md"><b>Stock:</b> {product.stock}</p>
+          </Suspense>
           <p className="text-md">
             <b>Category: </b> 
             <Link href={`/products/categories/${product.category}`}>
@@ -47,6 +56,7 @@ const page = async ({params} : {params : {productID : string}}) => {
           <p  className="text-md"><b>Rating:</b> {product.rating}</p>
           <p  className="text-md"><b>Brand:</b> {product.brand}</p>
           <p  className="text-md"><b>Discount:</b> {product.discountPercentage}%</p>
+          <AddToCart params={{product}} />
 
 
         </div>
@@ -58,7 +68,9 @@ const page = async ({params} : {params : {productID : string}}) => {
           {
             products.map((product : Product , index : number) => {
               return(
-                <ProductCard params={{ product, index }} key={index} />
+                <Suspense key={index} fallback={"Loading Product"}>
+                  <ProductCard params={{ product, index }} />
+                </Suspense>
               )
             })
           }

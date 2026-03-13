@@ -12,6 +12,7 @@ const Navbar = () => {
         <ul className="flex gap-10 text-2xl max-[900px]:text-xl max-[800px]:flex-wrap max-[700px]:flex-col max-[700px]:gap-4 max-[500px]:text-lg max-[200px]:text-sm">
             <Link className="hover:text-gray-400" href={"/"}>Home</Link>
             <Link className="hover:text-gray-400" href={"/products"}>Products</Link>
+            <Link className="hover:text-gray-400" href={"/cart"}>Cart</Link>
             <Link className="hover:text-gray-400" href={"/about"}>About</Link>
             <Link className="hover:text-gray-400" href={"/contact"}>Contact</Link>
         </ul>

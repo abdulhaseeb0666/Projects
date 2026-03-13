@@ -3,6 +3,8 @@ import Link from 'next/link';
 import type { Product } from '../products/page';
 
 const ProductCard = async ({params} : {params : {product : Product , index : number }}) => {
+
+  
     const product = (await params).product;
     const index = (await params).index;
 
