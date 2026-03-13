@@ -75,10 +75,7 @@ const CartClient = () => {
   
   return (
     <div className="p-5">
-      <div className="flex w-full mb-4 justify-between items-center">
-        <h1 className="text-2xl font-bold">Cart</h1>
-        <button type="button" className="cursor-pointer font-bold border-2 border-black  bg-red-900 text-white p-2 rounded-2xl">Update Cart</button>
-      </div>
+        <h1 className="text-2xl font-bold mb-5">Cart</h1>
       {cart.length === 0 ? (
         <p>No items in cart</p>
       ) : (

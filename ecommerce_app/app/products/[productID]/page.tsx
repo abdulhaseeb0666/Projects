@@ -4,7 +4,6 @@ import Link from "next/link";
 import ProductReview from "@/app/components/ProductReview";
 import ProductCard from "@/app/components/ProductCard";
 import type { Metadata } from "next";
-import { Suspense } from "react";
 import AddToCart from "@/app/components/AddToCart";
 
 export const metadata : Metadata = {
@@ -35,30 +34,20 @@ const page = async ({params} : {params : {productID : string}}) => {
           <ImageGallery params={{productImages}} />
         </div>
         <div className="px-5 w-[60%] flex flex-col gap-3">
-          <Suspense fallback={<h1 className="text-4xl font-bold">Loading...</h1>}>
-            <h1 className="text-4xl font-bold">{product.title}</h1>
-          </Suspense>
-          <Suspense fallback={<h1>Loading...</h1>}>
+          <h1 className="text-4xl font-bold">{product.title}</h1>
           <p className="font-medium text-2xl text-gray-700">{product.description}</p>
-          </Suspense>
-          <Suspense fallback={<h1>Loading...</h1>}>
           <p className="text-xl font-bold">${product.price.toFixed(0)}</p>
-          </Suspense>
-          <Suspense fallback={<h1>Loading...</h1>}>
           <p className="text-md"><b>Stock:</b> {product.stock}</p>
-          </Suspense>
           <p className="text-md">
-            <b>Category: </b> 
-            <Link href={`/products/categories/${product.category}`}>
-            {product.category.charAt(0).toUpperCase() + product.category.slice(1)} 
-            </Link> 
+          <b>Category: </b> 
+          <Link href={`/products/categories/${product.category}`}>
+          {product.category.charAt(0).toUpperCase() + product.category.slice(1)} 
+          </Link> 
           </p>
           <p  className="text-md"><b>Rating:</b> {product.rating}</p>
           <p  className="text-md"><b>Brand:</b> {product.brand}</p>
           <p  className="text-md"><b>Discount:</b> {product.discountPercentage}%</p>
           <AddToCart params={{product}} />
-
-
         </div>
       </div >
       <ProductReview params={{reviews}}/>
@@ -68,9 +57,7 @@ const page = async ({params} : {params : {productID : string}}) => {
           {
             products.map((product : Product , index : number) => {
               return(
-                <Suspense key={index} fallback={"Loading Product"}>
-                  <ProductCard params={{ product, index }} />
-                </Suspense>
+                <ProductCard key={index} params={{ product, index }} />
               )
             })
           }
