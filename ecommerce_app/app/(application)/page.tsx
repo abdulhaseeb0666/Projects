@@ -1,6 +1,6 @@
-import CategoryCards from "./components/CategoryCards"
-import SaleCard from "./components/SaleCard";
-import { categories } from "./components/categoryList";
+import CategoryCards from "../components/CategoryCards"
+import SaleCard from "../components/SaleCard";
+import { categories } from "../components/categoryList";
 import type { Metadata } from "next";
 
 export const metadata : Metadata = {

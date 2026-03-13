@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import type { Product } from '../products/page';
+import type { Product } from '../(application)/products/page';
 
 const ProductCard = async ({params} : {params : {product : Product , index : number }}) => {
 
@@ -15,7 +15,7 @@ const ProductCard = async ({params} : {params : {product : Product , index : num
           <Image  src={product.images[0]} alt="Product-image" width={200} height={150} className='place-self-center border-b  h-auto w-auto' /> 
         </div>
         <h1 className='font-bold text-xl h-fit'>{product.title}</h1>
-        <h1 className='font-medium'><span className='font-bold'>Price:</span> ${product.price}</h1>
+        <h1 className='font-medium'><span className='font-bold'>Price:</span> ${product.price.toFixed(0)}</h1>
         <h1 className='font-mono h-18 overflow-y-auto scrollbar-hidden'> <span className='font-bold'>Description:</span> {product.description}</h1>
         <h1 className='font-medium' ><span className='font-bold'>Category: </span>{product.category.charAt(0).toUpperCase() + product.category.slice(1)}</h1>
         <h1><span className='font-bold'>Remaining: </span>{product.stock}</h1>

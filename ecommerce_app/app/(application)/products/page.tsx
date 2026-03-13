@@ -1,5 +1,5 @@
-import ProductCategories from "../components/ProductCategories";
-import ProductCard from "../components/ProductCard";
+import ProductCategories from "../../components/ProductCategories";
+import ProductCard from "../../components/ProductCard";
 import type { Metadata } from "next";
 import { Suspense } from "react";
 

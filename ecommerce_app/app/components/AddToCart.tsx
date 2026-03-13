@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import type { Product } from "../products/page";
+import type { Product } from "../(application)/products/page";
 
 type Query = {
     id : number,

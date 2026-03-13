@@ -1,5 +1,5 @@
 import type { Product } from "../../page";
-import ProductCard from "../../../components/ProductCard";
+import ProductCard from "../../../../components/ProductCard";
 import type { Metadata } from "next";
 
 export const metadata : Metadata = {
