@@ -79,54 +79,55 @@ const CartClient = () => {
 }, [id, name, description, price, quantity, image, router]);
   
   return (
-    <div className="p-5">
-        <h1 className="text-2xl font-bold mb-5">Cart</h1>
+    <div className="p-5 max-[500px]:p-3 max-[200px]:p-2">
+      <h1 className="text-2xl font-bold mb-5 max-[700px]:text-xl max-[500px]:text-lg">Cart</h1>
       {cart.length === 0 ? (
         <p>No items in cart</p>
-      ) : (
-        cart.map((item , index) => (
-          <div key={index} className="border-2 border-gray-800 rounded-2xl p-3 mb-3 flex gap-3">
-            <Image src={item.image} width={80} height={30} loading="eager" alt="product-image" className="w-auto h-auto bg-gray-200 rounded-2xl border-2 border-orange-500 object-cover" />
-            <div className="flex flex-col h-30 justify-between">
-              <h2 className="font-semibold text-xl">{item.name}</h2>
-              <p className=" w-235" >{item.description}</p>
-              <p><b>Quantity: </b>{item.quantity}</p>
-              <p><b>Price: </b>${item.price.toFixed(0)}</p>
-            </div>
-            <button id={String(index)} onClick={()=>{removeItem(item.id)}} className="bg-red-500 h-fit w-fit place-self-end  text-white text-xl cursor-pointer active:scale-90 px-2 py-1 rounded-2xl border border-black">Remove</button>
-          </div>
-        ))
-      )}
-      {
-        cart.length > 0 && (
-          <div className="h-fit w-fit p-5 bg-gray-100 border-3 border-black rounded-2xl absolute left-[50%] translate-x-[-50%]">
-            
-            <div className="border-b-2 border-b-gray-400 pb-5">
-            {
-              cart.map((item , index) => (
-                <div key={index} className="flex justify-between whitespace-nowrap text-xl font-bold gap-40">
-                  <p>{item.name}</p>
-                  <p>${item.price.toFixed(0)} x {item.quantity} <span className="text-gray-500 font-normal">=</span> ${Number(item.price.toFixed(0)) * item.quantity}</p>
+        ) : (
+          cart.map((item , index) => (
+            <div key={index} className="border-2 h-fit border-gray-800 rounded-2xl p-3 mb-3 flex justify-between max-[700px]:flex-col max-[700px]:gap-3">
+              <div className="flex gap-5 w-full h-fit max-[500px]:gap-3 max-[200px]:flex-col">
+                <Image src={item.image} width={80} height={30} loading="eager" alt="product-image" className="w-auto h-fit bg-gray-200 rounded-2xl border-2 border-orange-500 object-cover max-[500px]:w-17.5" />
+                <div className="flex flex-col h-fit justify-between">
+                  <h2 className="font-semibold text-xl max-[700px]:text-lg max-[500px]:text-base">{item.name}</h2>
+                  <p className="max-w-125 max-[900px]:max-w-87.5 max-[700px]:max-w-full max-[500px]:text-sm" >{item.description}</p>
+                  <p className="max-[500px]:text-sm"><b>Quantity: </b>{item.quantity}</p>
+                  <p className="max-[500px]:text-sm"><b>Price: </b>${item.price.toFixed(0)}</p>
                 </div>
-              ))
-            }
+              </div>
+              <button id={String(index)} onClick={()=>{removeItem(item.id)}} className="bg-red-500 h-fit w-fit place-self-end  text-white text-xl cursor-pointer active:scale-90 px-2 py-1 rounded-2xl border border-black max-[700px]:self-end max-[500px]:text-sm">Remove</button>
             </div>
+          ))
+        )}
 
-            <div className="font-bold text-xl flex justify-between">
-              <h1>Total: </h1>
-              <h1>${cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(0)}</h1>
-            </div>
-            
-            <button type="button" 
-              onClick={()=>{
-                router.push(`/checkout/?cart=${JSON.stringify(cart)}`)
-                router.refresh();
-                localStorage.removeItem("cart");
-              }} 
-              className="text-white font-bold w-full mt-3 bg-green-800 px-3 py-1 rounded-2xl border-2 cursor-pointer active:scale-90">Checkout</button>
-          </div>   
-        )  
-      }
+        {cart.length > 0 && (
+          <div className="h-fit w-fit p-5 bg-gray-100 border-3 border-black rounded-2xl absolute left-[50%] translate-x-[-50%] max-[700px]:static max-[700px]:translate-x-0 max-[700px]:w-full max-[700px]:mt-5">
+              
+              <div className="border-b-2 border-b-gray-400 pb-5">
+              {
+                cart.map((item , index) => (
+                  <div key={index} className="flex justify-between whitespace-nowrap text-xl font-bold gap-40 max-[900px]:gap-10 max-[800px]:text-lg max-[700px]:text-sm max-[550px]:text-xs ">
+                    <p>{item.name}</p>
+                    <p>${item.price.toFixed(0)} x {item.quantity} <span className="text-gray-500 font-normal">=</span> ${Number(item.price.toFixed(0)) * item.quantity}</p>
+                  </div>
+                ))
+              }
+              </div>
+
+              <div className="font-bold text-xl flex justify-between max-[500px]:text-lg">
+                <h1>Total: </h1>
+                <h1>${cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(0)}</h1>
+              </div>
+              
+              <button type="button" 
+                onClick={()=>{
+                  router.push(`/checkout/?cart=${JSON.stringify(cart)}`)
+                  router.refresh();
+                  localStorage.removeItem("cart");
+                }} 
+                className="text-white font-bold w-full mt-3 bg-green-800 px-3 py-1 rounded-2xl border-2 cursor-pointer active:scale-90 max-[500px]:text-sm">Checkout</button>
+          </div>
+        )}
     </div>
   );
 };
